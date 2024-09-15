@@ -2,6 +2,12 @@
 using System.Threading;
 using System.Threading.Tasks;
 using static Sem2Task2.Server;
+/*
+ ДЗ Урок 4. GOF: паттерны проектирования в .Net разработке
+Структурируйте код клиента и сервера чата, используя знания о шаблонах.
+Добавлены шаблоны "Прототип" (public Message Clone()) в Message, Client и Server 
+ */
+
 
 /*
  Мы планируем улучшить наш класс сервера, делая его полностью клиент-серверным с

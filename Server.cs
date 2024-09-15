@@ -70,7 +70,8 @@ namespace Sem2Task2
                 string data1 = Encoding.UTF8.GetString(data);
                 Task.Run(() =>
                 {
-                    Message? someMessage = Message.FromJson(data1);
+                    Message? originalServerMes = Message.FromJson(data1);  //было Message? someMessage = Message.FromJson(data1);
+                    Message someMessage = originalServerMes.Clone();      //после шаблона Прототип
 
 
                     Message responseMsg = new Message();
@@ -116,7 +117,11 @@ namespace Sem2Task2
                         foreach (var client in clients)
                         {
                             someMessage.ToName = client.Key;
+                            //string js1 = someMessage.ToJson();
                             string js1 = someMessage.ToJson();
+
+
+
                             byte[] bytes1 = Encoding.UTF8.GetBytes(js1);
                             udpClient.Send(bytes1, bytes1.Length, client.Value);
                         }
